@@ -1,31 +1,39 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
+
 int main()
 {
-    int N;
-    cin >> N;
-    string array;
-    int score[80]={0};
-    int result;
-    for(int i=0;i<N;i++)
-    {
-        cin >> array;
-        for(int k=0;k<sizeof(array);k++)
-        {
-            if(array[k]=='X')
-            {
-                score[k] = 0;
-            }
-            else if(score[k]=='0')
-            {
-                if(array[k-1]=='0')
-                    {score[k] = score[k]+1;}
-                else
-                    {score[k] = 1;}
-            }
-            result += score[k];
-        }
-        cout << result << "\n";
-    }
+	int		N;
+	int		result;
+	string	OorX;
+	int		i;
+	int		j;
+	int		k;
+
+	cin >> N;
+	i = 0;
+	while(i < N)
+	{
+		cin >> OorX;
+		result = 0;
+		k = 0;
+		j = 0;
+		while (OorX[j] != '\0')
+		{
+			if (OorX[j] == 'O')
+			{
+				k++;
+			}
+			else if (OorX[j] == 'X')
+			{
+				k = 0;
+			}
+			result += k;
+			j++;
+		}
+		cout << result << endl;
+		i++;
+	}
 }
