@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	string	S;
-	int		alpha[26];
+	int		alpha[26] = { 0, };
 	int		max;
 	int		maxidx;
 	int		count;
