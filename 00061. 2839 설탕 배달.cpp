@@ -18,11 +18,11 @@ int	main()
 			return (0);
 		}
 		if((N - (5 * five)) % 3 == 0)
-        {
-            three = (N - (5 * five)) / 3;
-            break ;
-        }
-        five--;
+		{
+			three = (N - (5 * five)) / 3;
+			break ;
+		}
+		five--;
 	}
 	cout << five + three;
 }
