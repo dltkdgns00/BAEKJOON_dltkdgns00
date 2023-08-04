@@ -40,4 +40,4 @@ int main()
     cout << set.size();
 
     return 0;
-}
+} // 중복때문에 vector는 못씀
