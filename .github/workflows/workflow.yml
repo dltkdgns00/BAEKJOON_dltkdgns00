@@ -4,8 +4,6 @@ on:
   push:
     paths:
     - '**.md'
-    actors:
-    - 'dltkdgns00'
 
 
 jobs:
