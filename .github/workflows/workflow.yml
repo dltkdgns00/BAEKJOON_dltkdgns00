@@ -40,8 +40,8 @@ jobs:
         git add .
         git status
         if [[ -n "$(git status --porcelain)" ]]; then
-          git commit -m "Update performance details"
+          git commit -m "Update performance details - [Skip Github Action]"
           git push
         else
-          echo "No changes to commit. - [Skip Github Action]"
+          echo "No changes to commit."
         fi
