@@ -1,7 +1,2 @@
 
-./9012번: 괄호/README.md
-./10773번: 제로/README.md
-./4949번: 균형잡힌 세상/README.md
-./1000번: A+B/README.md
 ./README.md
-./28278번: 스택 2/README.md
