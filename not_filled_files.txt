@@ -1,3 +1,2 @@
 
 ./README.md
-./1001번: A-B/README.md
