@@ -13,7 +13,7 @@
 #include <iostream>
 #include <string>
 
-#define MAX 2500000
+#define MAX 2000000
 
 using namespace std;
 
