@@ -1,9 +1,8 @@
 # 27433번: 팩토리얼 2 - <img src="https://static.solved.ac/tier_small/1.svg" style="height:20px" /> Bronze V
 
 <!-- performance -->
-
-<!-- 문제 제출 후 깃허브에 푸시를 했을 때 제출한 코드의 성능이 입력될 공간입니다.-->
-
+### 성능 요약
+메모리: 2020 KB, 시간: 0 ms
 <!-- end -->
 
 ## 문제
