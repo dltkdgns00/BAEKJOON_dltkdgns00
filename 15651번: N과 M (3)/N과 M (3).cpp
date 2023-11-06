@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                      :::    :::    :::     */
-/*   Problem Number: 15649                             :+:    :+:      :+:    */
+/*   Problem Number: 15651                             :+:    :+:      :+:    */
 /*                                                    +:+    +:+        +:+   */
 /*   By: dltkdgns00 <boj.kr/u/dltkdgns00>            +#+    +#+          +#+  */
 /*                                                  +#+      +#+        +#+   */
-/*   https://boj.kr/15649                          #+#        #+#      #+#    */
-/*   Solved: 2023/10/03 21:48:29 by dltkdgns00    ###          ###   ##.kr    */
+/*   https://boj.kr/15651                          #+#        #+#      #+#    */
+/*   Solved: 2023/11/06 21:35:59 by dltkdgns00    ###          ###   ##.kr    */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <vector>
 
-#define MAX 9
+#define MAX 7
 
 using namespace std;
 
-void dfs(int k, int N, int M, int arr[], bool visited[]);
+void dfs(int k, int N, int M, int arr[]);
 
 int main()
 {
@@ -30,18 +29,15 @@ int main()
     int arr[MAX] = {
         0,
     };
-    bool visited[MAX] = {
-        0,
-    };
 
     cin >> N >> M;
 
-    dfs(0, N, M, arr, visited);
+    dfs(0, N, M, arr);
 
     return 0;
 }
 
-void dfs(int k, int N, int M, int arr[], bool visited[])
+void dfs(int k, int N, int M, int arr[])
 {
     if (k == M)
     {
@@ -52,12 +48,7 @@ void dfs(int k, int N, int M, int arr[], bool visited[])
     }
     for (size_t i = 1; i <= N; i++)
     {
-        if (!visited[i])
-        {
-            visited[i] = true;
-            arr[k] = i;
-            dfs(k + 1, N, M, arr, visited);
-            visited[i] = false;
-        }
+        arr[k] = i;
+        dfs(k + 1, N, M, arr);
     }
 }

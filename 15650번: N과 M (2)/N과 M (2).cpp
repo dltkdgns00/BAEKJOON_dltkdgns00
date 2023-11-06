@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                      :::    :::    :::     */
-/*   Problem Number: 15649                             :+:    :+:      :+:    */
+/*   Problem Number: 15650                             :+:    :+:      :+:    */
 /*                                                    +:+    +:+        +:+   */
 /*   By: dltkdgns00 <boj.kr/u/dltkdgns00>            +#+    +#+          +#+  */
 /*                                                  +#+      +#+        +#+   */
-/*   https://boj.kr/15649                          #+#        #+#      #+#    */
-/*   Solved: 2023/10/03 21:48:29 by dltkdgns00    ###          ###   ##.kr    */
+/*   https://boj.kr/15650                          #+#        #+#      #+#    */
+/*   Solved: 2023/11/06 20:11:32 by dltkdgns00    ###          ###   ##.kr    */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <vector>
-
-#define MAX 9
 
 using namespace std;
 
-void dfs(int k, int N, int M, int arr[], bool visited[]);
+#define MAX 9
+
+void dfs(int k, int cnt, int N, int M, int arr[], bool visited[]);
 
 int main()
 {
@@ -36,27 +35,27 @@ int main()
 
     cin >> N >> M;
 
-    dfs(0, N, M, arr, visited);
+    dfs(1, 0, N, M, arr, visited);
 
     return 0;
 }
 
-void dfs(int k, int N, int M, int arr[], bool visited[])
+void dfs(int k, int cnt, int N, int M, int arr[], bool visited[])
 {
-    if (k == M)
+    if (cnt == M)
     {
         for (size_t i = 0; i < M; i++)
             cout << arr[i] << ' ';
         cout << '\n';
         return;
     }
-    for (size_t i = 1; i <= N; i++)
+    for (size_t i = k; i <= N; i++)
     {
         if (!visited[i])
         {
             visited[i] = true;
-            arr[k] = i;
-            dfs(k + 1, N, M, arr, visited);
+            arr[cnt] = i;
+            dfs(i + 1, cnt + 1, N, M, arr, visited);
             visited[i] = false;
         }
     }
