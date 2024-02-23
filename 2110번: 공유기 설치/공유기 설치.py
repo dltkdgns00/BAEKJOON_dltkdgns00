@@ -1,12 +1,12 @@
 #  **************************************************************************  #
 #                                                                              #
 #                                                       :::    :::    :::      #
-#    Problem Number: 1920                              :+:    :+:      :+:     #
+#    Problem Number: 2110                              :+:    :+:      :+:     #
 #                                                     +:+    +:+        +:+    #
 #    By: dltkdgns00 <boj.kr/u/dltkdgns00>            +#+    +#+          +#+   #
 #                                                   +#+      +#+        +#+    #
-#    https://boj.kr/1920                           #+#        #+#      #+#     #
-#    Solved: 2024/02/22 14:46:30 by dltkdgns00    ###          ###   ##.kr     #
+#    https://boj.kr/2110                           #+#        #+#      #+#     #
+#    Solved: 2024/02/22 22:47:48 by dltkdgns00    ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
 
@@ -14,28 +14,25 @@ import sys
 
 input = sys.stdin.readline
 
-N = int(input())
-A = list(map(int, input().split()))
+N, C = map(int, input().split())
+houses = sorted([int(input()) for _ in range(N)])
 
-A.sort()
+start, end = 1, houses[-1] - houses[0]
 
-M = int(input())
-targets = list(map(int, input().split()))
+while start <= end:
+  mid = (start + end) // 2
+  current = houses[0]
+  count = 1
 
-for target in targets:
-  start, end = 0, len(A) - 1
-  found = False
-  
-  while start <= end:
-    mid = (start + end) // 2
+  for i in range(1, N):
+    if houses[i] - current >= mid:
+      count += 1
+      current = houses[i]
 
-    if A[mid] == target:
-      print('1')
-      found = True
-      break
-    elif A[mid] < target:
-      start = mid + 1
-    else:
-      end = mid - 1
-  if not found:
-    print('0')
+  if count >= C:
+    start = mid + 1
+    result = mid
+  else:
+    end = mid - 1
+
+print(result)
