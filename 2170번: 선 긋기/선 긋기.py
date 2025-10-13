@@ -1,12 +1,12 @@
 #  **************************************************************************  #
 #                                                                              #
 #                                                       :::    :::    :::      #
-#    Problem Number: 1931                              :+:    :+:      :+:     #
+#    Problem Number: 2170                              :+:    :+:      :+:     #
 #                                                     +:+    +:+        +:+    #
 #    By: dltkdgns00 <boj.kr/u/dltkdgns00>            +#+    +#+          +#+   #
 #                                                   +#+      +#+        +#+    #
-#    https://boj.kr/1931                           #+#        #+#      #+#     #
-#    Solved: 2025/10/10 23:20:45 by dltkdgns00    ###          ###   ##.kr     #
+#    https://boj.kr/2170                           #+#        #+#      #+#     #
+#    Solved: 2025/10/11 00:35:46 by dltkdgns00    ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
 
@@ -15,15 +15,22 @@ import sys
 input = sys.stdin.readline
 
 N = int(input())
-meetings = [list(map(int, input().split())) for _ in range(N)]
+lines = [tuple(map(int,input().split())) for _ in range(N)]
 
-meetings.sort(key = lambda x : (x[1], x[0]))
+lines.sort()
 
-count = 0
-end_time = 0
-for start, end in meetings:
-  if start >= end_time:
-    count += 1
-    end_time = end
+curL, curR = lines[0]
 
-print(count)
+total = 0
+
+for start, end in lines[1:]:
+  if start > curR:
+    total += curR - curL
+    curL, curR = start, end
+  else:
+    curR = max(curR, end)
+
+total += curR - curL
+
+
+print(total)

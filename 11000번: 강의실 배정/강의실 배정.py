@@ -1,29 +1,29 @@
 #  **************************************************************************  #
 #                                                                              #
 #                                                       :::    :::    :::      #
-#    Problem Number: 1931                              :+:    :+:      :+:     #
+#    Problem Number: 11000                             :+:    :+:      :+:     #
 #                                                     +:+    +:+        +:+    #
 #    By: dltkdgns00 <boj.kr/u/dltkdgns00>            +#+    +#+          +#+   #
 #                                                   +#+      +#+        +#+    #
-#    https://boj.kr/1931                           #+#        #+#      #+#     #
-#    Solved: 2025/10/10 23:20:45 by dltkdgns00    ###          ###   ##.kr     #
+#    https://boj.kr/11000                          #+#        #+#      #+#     #
+#    Solved: 2025/10/10 23:53:32 by dltkdgns00    ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
 
-import sys
+import sys, heapq
 
 input = sys.stdin.readline
 
 N = int(input())
-meetings = [list(map(int, input().split())) for _ in range(N)]
+lectures = [tuple(map(int,input().split())) for _ in range(N)]
 
-meetings.sort(key = lambda x : (x[1], x[0]))
+lectures.sort()
 
-count = 0
-end_time = 0
-for start, end in meetings:
-  if start >= end_time:
-    count += 1
-    end_time = end
+pq = []
 
-print(count)
+for start, end in lectures:
+  if pq and pq[0] <= start:
+    heapq.heappop(pq)
+  heapq.heappush(pq, end)
+
+print(len(pq))
